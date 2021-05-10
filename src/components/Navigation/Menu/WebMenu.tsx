@@ -16,7 +16,7 @@ const WebMenu = () => {
         <div className={classes.link}>
           <a href='/Relayers' className={classes.linkItems}>Relayers</a>
         </div>
-        <div className={classes.link}>
+        <div className={classes.activeLink}>
           <a href='/Table-View'className={classes.linkItems} >Table View</a>
         </div>
         <div className={classes.link}>
@@ -37,12 +37,15 @@ const useStyles = makeStyles((theme) => ({
     
   },
   root: {
-    // flexGrow: 1,
     display: 'flex', 
     flexFlow: 'row wrap', 
     justifyContent: 'center',
     margin: '20px',
     
+  },
+  activeLink: {
+    padding: '5px 30px',
+    // add // borderBottom: '2px solid red',
   },
   link: {
     padding: '0px 30px',
@@ -59,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
   },
   icon: {
     width: '40px',
-    height: 'auto'
+    height: 'auto',
   }
 }));
 

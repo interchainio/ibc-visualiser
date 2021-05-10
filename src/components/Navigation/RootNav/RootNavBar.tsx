@@ -4,8 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import IBCIcon from '../../../icons/ibc-visualizer-icon.svg'
-import { red } from '@material-ui/core/colors';
+import IBCIcon from '../../../icons/ibc-visualizer-icon.svg';
 
 const RootNavBar = () => {
   const classes = useStyles();
@@ -41,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
   icon: {
     width: '40px',
-    height: 'auto'
+    height: 'auto',
   }
 }));
 
