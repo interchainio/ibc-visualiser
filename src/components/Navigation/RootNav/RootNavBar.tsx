@@ -5,13 +5,14 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import IBCIcon from '../../../icons/ibc-visualizer-icon.svg'
+import { red } from '@material-ui/core/colors';
 
 const RootNavBar = () => {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" className={classes.AppBar}>
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="IBC Visualizer Icon">
             <img src={IBCIcon} alt='IBC Visualizer Icon' className={classes.icon}/>
@@ -25,12 +26,12 @@ const RootNavBar = () => {
   );
 }
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    background: '#000000',
-    // change root color
+  },
+  AppBar: {
+    background: '#202020',
   },
   menuButton: {
     marginRight: theme.spacing(2),
