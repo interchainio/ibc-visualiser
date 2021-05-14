@@ -1,1 +1,1 @@
-# ibc-channel-explorer
+# ibc-visualiser
