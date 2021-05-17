@@ -1,10 +1,16 @@
-import React from 'react';
+import * as React from 'react';
 import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom'
-function App() {
+
+// Components 
+import RootNavBar from './components/Navigation/RootNav/RootNavBar'
+import WebMenu from './components/Navigation/Menu/WebMenu'
+
+const App = () => {
   return (
     <Router>
       <div className="App">
-        {/* Root Nav */}
+        <RootNavBar/>
+        <WebMenu/>
         {/* Switch : Body Nav */}
         <Switch>
           {/* <Route exact path='/' component={() => <WelcomeToIBCViz/>}/> */}
