@@ -1,14 +1,15 @@
 import * as React from 'react';
-import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 // Components 
-import RootNavBar from './components/Navigation/RootNav/RootNavBar'
-import WebMenu from './components/Navigation/Menu/WebMenu'
+import RootNavBar from './components/Navigation/RootNav/RootNavBar';
+import WebMenu from './components/Navigation/Menu/WebMenu';
 
 const App = () => {
+
   return (
     <Router>
-      <div className="App">
+      <div className='App'>
         <RootNavBar/>
         <WebMenu/>
         {/* Switch : Body Nav */}

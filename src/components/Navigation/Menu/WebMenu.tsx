@@ -11,19 +11,19 @@ const WebMenu = () => {
     <div className={classes.container}>
       <div className={classes.root}>
         <div className={classes.link}>
-          <a href='/Docs'>Docs</a>
+          <a href='/Docs' className={classes.linkItems}>Docs</a>
         </div>
         <div className={classes.link}>
-          <a href='/Relayers'>Relayers</a>
+          <a href='/Relayers' className={classes.linkItems}>Relayers</a>
+        </div>
+        <div className={classes.activeLink}>
+          <a href='/Table-View'className={classes.linkItems} >Table View</a>
         </div>
         <div className={classes.link}>
-          <a href='/Table-View'>Table View</a>
+          <a href='/FAQ' className={classes.linkItems}>FAQ's</a>
         </div>
         <div className={classes.link}>
-          <a href='/FAQ'>FAQ's</a>
-        </div>
-        <div className={classes.link}>
-          <a href='/Repo'>Repos</a>
+          <a href='/Repo' className={classes.linkItems}>Repos</a>
         </div>
       </div>
       <hr/>
@@ -37,14 +37,21 @@ const useStyles = makeStyles((theme) => ({
     
   },
   root: {
-    // flexGrow: 1,
     display: 'flex', 
     flexFlow: 'row wrap', 
     justifyContent: 'center',
     margin: '20px',
   },
+  activeLink: {
+    padding: '5px 30px',
+    // add // borderBottom: '2px solid red',
+  },
   link: {
-    padding: '5px',
+    padding: '0px 30px',
+  },
+  linkItems: {
+    textDecoration: 'none',
+    color: '#000000',
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -54,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
   },
   icon: {
     width: '40px',
-    height: 'auto'
+    height: 'auto',
   }
 }));
 
