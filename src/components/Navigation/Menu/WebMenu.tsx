@@ -41,7 +41,6 @@ const useStyles = makeStyles((theme) => ({
     flexFlow: 'row wrap', 
     justifyContent: 'center',
     margin: '20px',
-    
   },
   activeLink: {
     padding: '5px 30px',
