@@ -1,6 +1,6 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
+import { createStyles, Theme, withStyles, WithStyles, makeStyles } from '@material-ui/core/styles';
 import TableCell from '@material-ui/core/TableCell';
 import Paper from '@material-ui/core/Paper';
 import { AutoSizer, Column, Table, TableCellRenderer, TableHeaderProps } from 'react-virtualized';
@@ -20,6 +20,7 @@ const styles = (theme: Theme) =>
     head: {
       backgroundColor: '#F7F8F9',
       color: theme.palette.common.black,
+      width: '100%',
     },
     flexContainer: {
       display: 'flex',
@@ -163,32 +164,32 @@ const VirtualizedTable = withStyles(styles)(MuiVirtualizedTable);
 // ---
 
 interface Data {
-  calories: number;
-  carbs: number;
-  dessert: string;
-  fat: number;
+  channels: string;
+  packetCommitment: number;
+  connections: string;
+  port: number;
   id: number;
-  protein: number;
+  data: number;
 }
-type Sample = [string, number, number, number, number];
+type Sample = [string, string, number, number, number];
 
 const sample: Sample[] = [
-  ['Frozen yoghurt', 159, 6.0, 24, 4.0],
-  ['Ice cream sandwich', 237, 9.0, 37, 4.3],
-  ['Eclair', 262, 16.0, 24, 6.0],
-  ['Cupcake', 305, 3.7, 67, 4.3],
-  ['Gingerbread', 356, 16.0, 49, 3.9],
+  ['connection name 1', 'channel 1', 6.0, 24, 4.0],
+  ['connection name 2', 'channel 2', 9.0, 37, 4.3],
+  ['connection name 3', 'channel 5', 16.0, 24, 6.0],
+  ['connection name 4', 'channel 3', 3.7, 67, 4.3],
+  ['connection name 5', 'channel 4', 16.0, 49, 3.9],
 ];
 
 function createData(
   id: number,
-  dessert: string,
-  calories: number,
-  fat: number,
-  carbs: number,
-  protein: number,
+  connections: string,
+  channels: string,
+  port: number,
+  packetCommitment: number,
+  data: number,
 ): Data {
-  return { id, dessert, calories, fat, carbs, protein };
+  return { id, connections, channels, port, packetCommitment, data };
 }
 
 const rows: Data[] = [];
@@ -199,39 +200,41 @@ for (let i = 0; i < 200; i += 1) {
 }
 
 const GaiaChainTable = () => {
+  const classes = useStyles();
+
   return (
-    <Paper style={{ height: '80vh', width: '100%' }}>
+    <Paper className={classes.root}>
       <VirtualizedTable
         rowCount={rows.length}
         rowGetter={({ index }) => rows[index]}
         columns={[
           {
             width: 200,
-            label: 'Dessert',
-            dataKey: 'dessert',
+            label: 'Connections',
+            dataKey: 'connections',
           },
           {
             width: 120,
-            label: 'Calories\u00A0(g)',
-            dataKey: 'calories',
+            label: 'Channels',
+            dataKey: 'channels',
             numeric: true,
           },
           {
             width: 120,
-            label: 'Fat\u00A0(g)',
-            dataKey: 'fat',
+            label: 'Port',
+            dataKey: 'port',
             numeric: true,
           },
           {
             width: 120,
-            label: 'Carbs\u00A0(g)',
-            dataKey: 'carbs',
+            label: 'Packet Commitment',
+            dataKey: 'packetCommitment',
             numeric: true,
           },
           {
             width: 120,
-            label: 'Protein\u00A0(g)',
-            dataKey: 'protein',
+            label: 'Data',
+            dataKey: 'data',
             numeric: true,
           },
         ]}
@@ -239,5 +242,12 @@ const GaiaChainTable = () => {
     </Paper>
   );
 }
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '100%',
+    height: '80vh',
+  },
+}));
 
 export default GaiaChainTable; 
