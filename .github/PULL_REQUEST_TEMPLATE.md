@@ -11,6 +11,12 @@
 
 ---
 
+**Issues**
+
+- {{issue link}}
+
+<br/>
+
 **New**
 
 - {{new thing}}

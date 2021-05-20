@@ -75,7 +75,7 @@ const DashboardMenu = () => {
         Relayers
       </TabPanel>
       <TabPanel value={value} index={2}>
-        TableView
+        Table View
       </TabPanel>
       <TabPanel value={value} index={3}>
         FAQs

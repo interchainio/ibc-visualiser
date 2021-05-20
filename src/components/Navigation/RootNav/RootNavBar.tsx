@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   icon: {
-    width: '40px',
+    width: '50px',
     height: 'auto',
   }
 }));
