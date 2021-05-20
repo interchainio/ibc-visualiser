@@ -6,7 +6,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import DialpadIcon from '@material-ui/icons/Dialpad';
+import Card from '@material-ui/core/Card';
 
 // Component 
 import ChainMenu from '../Table/ChainMenu';
@@ -81,7 +81,9 @@ const DashboardMenu = () => {
       </TabPanel>
       <TabPanel value={value} index={2}>
         <ChainMenu/>
-        <GaiaChainTable/>
+        <Card className={classes.Card}>
+          <GaiaChainTable/>
+        </Card>
       </TabPanel>
       <TabPanel value={value} index={3}>
         FAQs
@@ -98,6 +100,9 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     // backgroundColor: theme.palette.background.paper,
     backgroundColor: '#F5F8FA',
+  },
+  Card: {
+    padding: '50px 20px 20px 20px',
   },
   Tabs: {
     display: 'flex',

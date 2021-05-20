@@ -17,6 +17,10 @@ declare module '@material-ui/core/styles/withStyles' {
 
 const styles = (theme: Theme) =>
   createStyles({
+    head: {
+      backgroundColor: '#F7F8F9',
+      color: theme.palette.common.black,
+    },
     flexContainer: {
       display: 'flex',
       alignItems: 'center',
@@ -103,7 +107,7 @@ class MuiVirtualizedTable extends React.PureComponent<MuiVirtualizedTableProps> 
     return (
       <TableCell
         component="div"
-        className={clsx(classes.tableCell, classes.flexContainer, classes.noClick)}
+        className={clsx(classes.head, classes.tableCell, classes.flexContainer, classes.noClick)}
         variant="head"
         style={{ height: headerHeight }}
         align={columns[columnIndex].numeric || false ? 'right' : 'left'}
