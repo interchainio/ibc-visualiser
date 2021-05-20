@@ -2,14 +2,14 @@ import * as React from 'react';
 
 // Components 
 import RootNavBar from '../Navigation/RootNav/RootNavBar';
-import WebMenu from '../Navigation/Menu/WebMenu';
+import DashboardMenu from './DashboardMenu'; 
 
 const Dashboard = () => {
 
   return (
       <div className='Dashboard'>
         <RootNavBar/>
-        <WebMenu/>
+        <DashboardMenu/>
       </div>
   );
 }
