@@ -3,8 +3,6 @@ import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 // Components 
 import Dashboard from './components/Dashboard/Dashboard';
-import RootNavBar from './components/Navigation/RootNav/RootNavBar';
-import WebMenu from './components/Navigation/Menu/WebMenu';
 
 const App = () => {
 
