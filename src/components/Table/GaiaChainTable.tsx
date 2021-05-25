@@ -2,7 +2,7 @@ import * as React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 // Data
-import { VirtualizedTable, rows } from '../../utils/DummyData';
+import { VirtualizedTable, rows } from '../../utils/dummyData';
 
 
 const useStyles = makeStyles((theme) => ({
