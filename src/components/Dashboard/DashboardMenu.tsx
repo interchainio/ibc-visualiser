@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -6,8 +6,15 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import Card from '@material-ui/core/Card';
+
+// Component 
+import ChainMenu from '../Table/ChainMenu';
+import GaiaChainTable from '../Table/GaiaChainTable'; 
+import GaiaChainMetadata from '../Table/GaiaChainMetadata';
 
 function TabPanel(props: any) {
+  const classes = useStyles();
   const { children, value, index, ...other } = props;
 
   return (
@@ -19,7 +26,7 @@ function TabPanel(props: any) {
       {...other}
     >
       {value === index && (
-        <Box p={3}>
+        <Box className={classes.Box}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -33,7 +40,8 @@ TabPanel.propTypes = {
   value: PropTypes.any.isRequired,
 };
 
-function a11yProps(index: any) {
+
+function ariaControlsIndexValue(index: any) {
   return {
     id: `scrollable-auto-tab-${index}`,
     'aria-controls': `scrollable-auto-tabpanel-${index}`,
@@ -42,8 +50,9 @@ function a11yProps(index: any) {
 
 const DashboardMenu = () => {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(2);
 
+  // TODO: handleChange currently disabled handleChange to reflect action 
   const handleChange = (event: any, newValue: any) => {
     setValue(newValue);
   };
@@ -54,18 +63,18 @@ const DashboardMenu = () => {
         <Tabs
           className={classes.Tabs}
           value={value}
-          onChange={handleChange}
+          // onChange={handleChange}
           indicatorColor="primary"
           textColor="primary"
           variant="scrollable"
           scrollButtons="auto"
           aria-label="scrollable auto tabs example"
         >
-          <Tab label="Docs" {...a11yProps(1)} />
-          <Tab label="Relayers" {...a11yProps(2)} />
-          <Tab label="TableView" {...a11yProps(0)} />
-          <Tab label="FAQs" {...a11yProps(3)} />
-          <Tab label="Repos" {...a11yProps(4)} />
+          <Tab label="Docs" {...ariaControlsIndexValue(0)} />
+          <Tab label="Relayers" {...ariaControlsIndexValue(1)} />
+          <Tab label="TableView" {...ariaControlsIndexValue(2)} />
+          <Tab label="FAQs" {...ariaControlsIndexValue(3)} />
+          <Tab label="Repos" {...ariaControlsIndexValue(4)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
@@ -75,7 +84,11 @@ const DashboardMenu = () => {
         Relayers
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Table View
+        <ChainMenu/>
+        <Card className={classes.Card}>
+          <GaiaChainTable/>
+          <GaiaChainMetadata/>
+        </Card>
       </TabPanel>
       <TabPanel value={value} index={3}>
         FAQs
@@ -90,9 +103,19 @@ const DashboardMenu = () => {
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: '#F5F8FA',
   },
-  Tabs : {
+  Box: {
+    padding: '20px',
+  },
+  Card: {
+    padding: '50px 20px 20px 20px',
+    display: 'flex',
+    flex: 1,
+    flexFlow: 'row wrap',
+    justifyContent: 'center',
+  },
+  Tabs: {
     display: 'flex',
     flexFlow: 'column wrap',
     justifyContent: 'center',
