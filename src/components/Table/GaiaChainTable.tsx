@@ -5,6 +5,9 @@ import TableCell from '@material-ui/core/TableCell';
 import Paper from '@material-ui/core/Paper';
 import { AutoSizer, Column, Table, TableCellRenderer, TableHeaderProps } from 'react-virtualized';
 
+// Data
+import { SampleData } from '../Data/SampleData'; 
+
 declare module '@material-ui/core/styles/withStyles' {
   // Augment the BaseCSSProperties so that we can control jss-rtl
   interface BaseCSSProperties {
@@ -15,7 +18,7 @@ declare module '@material-ui/core/styles/withStyles' {
   }
 }
 
-const styles = (theme: Theme) =>
+const styles = (theme: Theme) => 
   createStyles({
     head: {
       backgroundColor: '#F7F8F9',
@@ -50,6 +53,14 @@ const styles = (theme: Theme) =>
       cursor: 'initial',
     },
   });
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '60%',
+    height: '80vh',
+    border: '2px solid #F7F8F9',
+  },
+}));
 
 interface ColumnData {
   dataKey: string;
@@ -165,29 +176,32 @@ const VirtualizedTable = withStyles(styles)(MuiVirtualizedTable);
 
 interface Data {
   channels: string;
-  packetCommitment: number;
+  packetCommitment: string;
   connections: string;
-  port: number;
+  port: string;
   id: number;
-  data: number;
+  data: string;
 }
-type Sample = [string, string, number, number, number];
+type Sample = [string, string, string, string, string];
 
 const sample: Sample[] = [
-  ['connection name 1', 'channel 1', 6.0, 24, 4.0],
-  ['connection name 2', 'channel 2', 9.0, 37, 4.3],
-  ['connection name 3', 'channel 5', 16.0, 24, 6.0],
-  ['connection name 4', 'channel 3', 3.7, 67, 4.3],
-  ['connection name 5', 'channel 4', 16.0, 49, 3.9],
+  ['connection name 1', 'channel 1', '6.0', '24', '4.0'],
+  ['connection name 2', 'channel 2', '9.0', '37', '4.3'],
+  ['connection name 3', 'channel 5', '16.0', '24', '6.0'],
+  ['connection name 4', 'channel 3', '3.7', '67', '4.3'],
+  ['connection name 5', 'channel 4', '16.0', '49', '3.9'],
 ];
+
+
+// let sample: InstanceType<typeof SampleData>;
 
 function createData(
   id: number,
   connections: string,
   channels: string,
-  port: number,
-  packetCommitment: number,
-  data: number,
+  port: string,
+  packetCommitment: string,
+  data: string,
 ): Data {
   return { id, connections, channels, port, packetCommitment, data };
 }
@@ -203,7 +217,7 @@ const GaiaChainTable = () => {
   const classes = useStyles();
 
   return (
-    <Paper className={classes.root}>
+    <div className={classes.root}>
       <VirtualizedTable
         rowCount={rows.length}
         rowGetter={({ index }) => rows[index]}
@@ -214,40 +228,33 @@ const GaiaChainTable = () => {
             dataKey: 'connections',
           },
           {
-            width: 120,
+            width: 150,
             label: 'Channels',
             dataKey: 'channels',
             numeric: true,
           },
           {
-            width: 120,
+            width: 150,
             label: 'Port',
             dataKey: 'port',
             numeric: true,
           },
           {
-            width: 120,
+            width: 200,
             label: 'Packet Commitment',
             dataKey: 'packetCommitment',
             numeric: true,
           },
           {
-            width: 120,
+            width: 140,
             label: 'Data',
             dataKey: 'data',
             numeric: true,
           },
         ]}
       />
-    </Paper>
+    </div>
   );
 }
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-    height: '80vh',
-  },
-}));
 
 export default GaiaChainTable; 
