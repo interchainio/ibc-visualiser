@@ -6,7 +6,7 @@ import Paper from '@material-ui/core/Paper';
 import { AutoSizer, Column, Table, TableCellRenderer, TableHeaderProps } from 'react-virtualized';
 
 // Data
-import { SampleData } from './data/sampleData'; 
+// import { SampleData } from './data/sampleData'; 
 
 declare module '@material-ui/core/styles/withStyles' {
   // Augment the BaseCSSProperties so that we can control jss-rtl
