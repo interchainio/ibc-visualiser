@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
 // Components 
 import Dashboard from './components/Dashboard/Dashboard';
 
 const App = () => {
 
-  const orgName = 'ibc'
-  const chainName = 'gaia'
+  // const orgName = 'ibc'
+  // const chainName = 'gaia'
 
   return (
     <Router>

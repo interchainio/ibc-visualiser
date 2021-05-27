@@ -53,9 +53,9 @@ const DashboardMenu = () => {
   const [value, setValue] = React.useState(2);
 
   // TODO: handleChange currently disabled handleChange to reflect action 
-  const handleChange = (event: any, newValue: any) => {
-    setValue(newValue);
-  };
+  // const handleChange = (event: any, newValue: any) => {
+  //   setValue(newValue);
+  // };
 
   return (
     <div className={classes.root}>
