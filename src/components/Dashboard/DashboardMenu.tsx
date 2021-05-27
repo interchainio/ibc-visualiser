@@ -50,7 +50,7 @@ function ariaControlsIndexValue(index: any) {
 
 const DashboardMenu = () => {
   const classes = useStyles();
-  const [value, setValue] = React.useState(2);
+  const [value] = React.useState(2);
 
   // TODO: handleChange currently disabled handleChange to reflect action 
   // const handleChange = (event: any, newValue: any) => {
