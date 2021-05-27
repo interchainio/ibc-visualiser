@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
-// Data
+// Data...
 import { VirtualizedTable, rows } from '../../utils/dummyData';
 
 
