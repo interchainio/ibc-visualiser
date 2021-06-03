@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { IbcExtension, QueryClient, setupIbcExtension } from "@cosmjs/stargate";
-import { adaptor34, Client as TendermintClient } from "@cosmjs/tendermint-rpc";
+import { adaptor34, Client as Tendermint34Client } from "@cosmjs/tendermint-rpc";
 
 
 import { config } from "../config";
@@ -22,14 +22,14 @@ const ClientContext = React.createContext<ClientContextType>(defaultClientContex
 export const useClient = (): ClientContextType => React.useContext(ClientContext);
 
 export function ClientProvider({ children }: React.HTMLAttributes<HTMLOrSVGElement>): JSX.Element {
-  const [tmClient, setTmClient] = React.useState<TendermintClient>();
+  const [tmClient, setTmClient] = React.useState<Tendermint34Client>();
   const [ibcClient, setIbcClient] = React.useState<IbcClient>();
   const [value, setValue] = React.useState<ClientContextType>(defaultClientContext);
   const [clientsAvailable, setClientsAvailable] = React.useState(false);
 
   useEffect(() => {
     (async function updateTmClient() {
-      const tmClient = await TendermintClient.connect(config.rpcUrl, adaptor34);
+      const tmClient = await Tendermint34Client.connect(config.rpcUrl, adaptor34);
       setTmClient(tmClient);
     })();
   }, []);

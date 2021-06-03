@@ -1,4 +1,5 @@
-import { codec } from "@cosmjs/stargate";
+// import { codec } from "@cosmjs/stargate";
+import * as codec from "@cosmjs/stargate"; 
 
 // IBC common types
 export type IbcConnectionState = codec.ibc.core.connection.v1.State;
